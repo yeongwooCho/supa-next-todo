@@ -306,3 +306,6 @@ fabric.properties
 !.idea/runConfigurations
 
 # End of https://www.toptal.com/developers/gitignore/api/node,macos,nextjs,react,webstorm+all
+
+
+database.types.ts
