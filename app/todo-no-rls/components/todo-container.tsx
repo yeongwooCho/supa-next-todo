@@ -1,13 +1,14 @@
 "use client";
 // 브라우져에서 supabase api를 통해 데이터를 가져오기 위해 클라이언트 컴포넌트를 사용합니다.
 
-import React, {useEffect} from 'react';
-import {getTodoList} from "@/apis/todos-no-rls";
+import React from 'react';
+import useTodosController from "@/app/todo-no-rls/hooks/use-todos-controller";
 
 const TodoContainer = () => {
-  useEffect(() => {
-    getTodoList().then(r => console.log(r));
-  }, []);
+  const {loading, todos} = useTodosController();
+
+  console.log('>>loading',loading);
+  console.log('>>todos',todos);
 
   return (
     <div>
