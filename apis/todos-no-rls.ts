@@ -28,13 +28,13 @@ export const getTodosById = async (id: number) => {
   return result.data;
 }
 
-export const getTodosBySearch = async (search: string) => {
+export const getTodosBySearch = async (terms: string) => {
   const supabase = createSupabaseBrowserClient();
 
   const result = await supabase.from('todos_no_rls')
     .select('*')
     .is("deleted_at", null)
-    .ilike('content', `%${search}%`)
+    .ilike('content', `%${terms}%`)
     .limit(10);
   // i는 대소문자 구분 없이 검색
 

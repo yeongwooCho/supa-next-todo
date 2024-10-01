@@ -46,12 +46,13 @@ const useTodosController = () => {
   }
 
   // todo 검색
-  const onSearchTodos = async (search: string) => {
-    const res = await getTodosBySearch(search);
-    if (res) {
-      setTodos(res);
+  const onSearchTodos = async (terms: string) => {
+    if (terms) {
+      const res = await getTodosBySearch(terms);
+      if (res) setTodos(res);
+    } else {
+      await onGetTodos();
     }
-    await onGetTodos();
   }
 
   // todo id로 검색

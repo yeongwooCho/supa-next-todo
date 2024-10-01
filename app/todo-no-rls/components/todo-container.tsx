@@ -26,6 +26,11 @@ const TodoContainer = () => {
         ownerUserId={"123123"}
         loading={loading}
         todoListData={todos}
+        isReadOnly={false}
+        onUpdate={onUpdateTodo}
+        onCreate={onCreateEmptyTodos}
+        onDelete={onDeleteTodo}
+        onSearch={onSearchTodos}
       />
     </div>
   );
