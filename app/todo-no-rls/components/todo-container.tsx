@@ -5,10 +5,18 @@ import React from 'react';
 import useTodosController from "@/app/todo-no-rls/hooks/use-todos-controller";
 
 const TodoContainer = () => {
-  const {loading, todos} = useTodosController();
+  const {
+    loading,
+    todos,
+    onCreateEmptyTodos,
+    onUpdateTodo,
+    onDeleteTodo,
+    onSearchTodos,
+    onGetTodosById
+  } = useTodosController();
 
-  console.log('>>loading',loading);
-  console.log('>>todos',todos);
+  console.log('>>loading', loading);
+  console.log('>>todos', todos);
 
   return (
     <div>
