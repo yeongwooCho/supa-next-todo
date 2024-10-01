@@ -3,6 +3,7 @@
 
 import React from 'react';
 import useTodosController from "@/app/todo-no-rls/hooks/use-todos-controller";
+import TodoList from "@/components/todo-list";
 
 const TodoContainer = () => {
   const {
@@ -20,7 +21,7 @@ const TodoContainer = () => {
 
   return (
     <div>
-      <h1>TodoContainer</h1>
+      <TodoList/>
     </div>
   );
 };
