@@ -5,7 +5,7 @@ import {Database} from "@/database.types";
 type TTodoDto = Database["public"]["Tables"]["todos_no_rls"]["Row"];
 
 const useTodosController = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [todos, setTodos] = useState<TTodoDto[]>([]);
 
   const onGetTodos = async () => {

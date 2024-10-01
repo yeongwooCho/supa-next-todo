@@ -1,9 +1,14 @@
 import React from 'react';
+import {Database} from "@/database.types";
 
-const TodoListItem = () => {
+interface ITodoListItemProps {
+  todo: Database["public"]["Tables"]["todos_no_rls"]["Row"];
+}
+
+const TodoListItem: React.FC<ITodoListItemProps> = ({todo}) => {
   return (
     <div>
-      todo list item
+      {todo.content}
     </div>
   );
 };
