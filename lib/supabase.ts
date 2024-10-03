@@ -12,7 +12,7 @@ export const createSupabaseServerClient = async (
 
   return createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         get: (key) => cookieStore.get(key)?.value,
@@ -42,7 +42,7 @@ export const createSupabaseServerClientMiddleware = (
 
   return createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         get: (key) => getCookie(key, {req, res}),
