@@ -1,14 +1,14 @@
 "use client";
 
 import React from 'react';
-import {pingAction} from "@/actions/ping/ping.action";
+import {getTodoAction} from "@/actions/todo/todo.action";
 
 const ClientComponentTest = () => {
   return (
     <div>
 
       <button onClick={async () => {
-        const result = await pingAction();
+        const result = await getTodoAction();
         console.log(result);
       }}>Test
       </button>
