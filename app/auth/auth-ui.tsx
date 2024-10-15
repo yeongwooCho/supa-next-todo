@@ -16,7 +16,7 @@ const AuthUi = () => {
     <section className="w-full">
       <div className="mx-auto max-w-[500px]">
         <Auth
-          redirectTo={"http://localhost:3000/auth"}
+          redirectTo={process.env.NEXT_PUBLIC_AUTH_REDIRECT_TO}
           supabaseClient={supabase}
           appearance={{
             theme: ThemeSupa, // supabase theme 지정
