@@ -1,9 +1,11 @@
 import React from 'react';
+import AuthUi from "@/app/auth/auth-ui";
+
 
 const page = async () => {
   return (
     <div>
-      <h1>Page</h1>
+      <AuthUi />
     </div>
   );
 };
