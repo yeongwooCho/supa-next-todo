@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {Database} from "@/database.types";
 import {CiCircleCheck, CiEdit} from "react-icons/ci";
 import {AiOutlineDelete} from "react-icons/ai";
+import {Database} from "@/types/supabase";
 
 interface ITodoListItemProps {
   todo: Database["public"]["Tables"]["todos_no_rls"]["Row"];

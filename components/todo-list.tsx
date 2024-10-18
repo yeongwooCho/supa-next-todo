@@ -3,8 +3,8 @@
 import React, {useState} from 'react';
 import {IoSearchOutline, IoShareSocialOutline} from "react-icons/io5";
 import {useCopyToClipboard} from "usehooks-ts";
-import {Database} from "@/database.types";
 import TodoListItem from "@/components/todo-list-item";
+import {Database} from "@/types/supabase";
 
 interface ITodoListProps {
   sharedUserFullName?: string;
@@ -31,7 +31,8 @@ const TodoList: React.FC<ITodoListProps> = (
     onSearch,
   }) => {
   const [userSearchInput, setUserSearchInput] = useState("");
-  const [copiedText, copy] = useCopyToClipboard();
+  // const [copiedText, copy] = useCopyToClipboard();
+  const [, copy] = useCopyToClipboard();
 
   const handleCopy = () => {
     const shareLink = `${process.env.NEXT_PUBLIC_AUTH_REDIRECT_TO_HOME}/share/${ownerUserId}`;

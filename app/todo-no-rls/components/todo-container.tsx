@@ -13,7 +13,7 @@ const TodoContainer = () => {
     onUpdateTodo,
     onDeleteTodo,
     onSearchTodos,
-    onGetTodosById
+    // onGetTodosById
   } = useTodosController();
 
   console.log('>>loading', loading);

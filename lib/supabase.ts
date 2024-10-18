@@ -1,8 +1,8 @@
 import {cookies} from "next/headers";
 import {createServerClient} from "@supabase/ssr";
-import {Database} from "@/database.types";
 import {NextRequest, NextResponse} from "next/server";
 import {getCookie, setCookie} from "cookies-next";
+import {Database} from "@/types/supabase";
 
 // - ServerActions, RouterHandler
 export const createSupabaseServerClient = async (
