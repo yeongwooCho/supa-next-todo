@@ -19,6 +19,24 @@ const AuthUi = () => {
     }
   }
 
+  // // AuthUI가 아닌 자체적으로 로그인을 구현할 경우
+  // const handleGoogleLogin = async () => {
+  //   await supabase.auth.signInWithOAuth({
+  //     provider: 'google',
+  //     options: {
+  //       redirectTo: process.env.NEXT_PUBLIC_AUTH_REDIRECT_TO,
+  //     }
+  //   });
+  // }
+  // const handleGithubLogin = async () => {
+  //   await supabase.auth.signInWithOAuth({
+  //     provider: 'github',
+  //     options: {
+  //       redirectTo: process.env.NEXT_PUBLIC_AUTH_REDIRECT_TO,
+  //     }
+  //   });
+  // }
+
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser('');
