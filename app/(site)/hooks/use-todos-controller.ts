@@ -1,21 +1,27 @@
 import {useEffect, useState} from "react";
-import {createTodo, deleteTodoSoft, getTodoList, getTodosById, getTodosBySearch, updateTodo} from "@/actions/todo/todo.action";
+import {
+  createTodo,
+  deleteTodoSoft,
+  getTodosById,
+  getTodosBySearch,
+  getTodosByUserId,
+  updateTodo
+} from "@/actions/todo/todo.action";
 import {Database} from "@/types/supabase";
 
 type TTodoDto = Database["public"]["Tables"]["todos_with_rls"]["Row"];
 
-const useTodosController = () => {
+const useTodosController = (ownerUserId = "") => {
   const [loading, setLoading] = useState(true);
   const [todos, setTodos] = useState<TTodoDto[]>([]);
 
   const onGetTodos = async () => {
     try {
       setLoading(true);
-      const res = await getTodoList();
+      const res = await getTodosByUserId(ownerUserId);
       if (res) {
         setTodos(res);
       }
-
     } catch (e) {
       console.error(e);
     } finally {

@@ -18,7 +18,7 @@ const TodoContainer = ({ownerUserId}: TodoContainerProps) => {
     onDeleteTodo,
     onSearchTodos,
     // onGetTodosById
-  } = useTodosController();
+  } = useTodosController(ownerUserId);
 
   console.log('>>loading', loading);
   console.log('>>todos', todos);
