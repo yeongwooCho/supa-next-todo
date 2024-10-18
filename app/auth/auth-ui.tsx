@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {Auth} from "@supabase/auth-ui-react";
 import {createSupabaseBrowserClient} from "@/lib/client/supabase";
 import {ThemeSupa} from "@supabase/auth-ui-shared";
@@ -12,12 +12,18 @@ const AuthUi = () => {
   const supabase = createSupabaseBrowserClient();
   const isMount = useHydrate();
 
-  const getUserInfo = async () => {
+  // const getUserInfo = async () => {
+  //   const result = await supabase.auth.getSession();
+  //   if (result.data.session?.user.email) {
+  //     setUser(result.data.session.user.email);
+  //   }
+  // }
+  const getUserInfo = useCallback(async () => {
     const result = await supabase.auth.getSession();
     if (result.data.session?.user.email) {
       setUser(result.data.session.user.email);
     }
-  }
+  }, [supabase.auth]);
 
   // // AuthUI가 아닌 자체적으로 로그인을 구현할 경우
   // const handleGoogleLogin = async () => {
