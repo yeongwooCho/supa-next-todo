@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {
   createTodo,
   deleteTodoSoft,
@@ -18,25 +18,23 @@ const useTodosController = (
   const [loading, setLoading] = useState(true);
   const [todos, setTodos] = useState<TTodoDto[]>([]);
 
-  const onGetTodos = async () => {
+  const onGetTodos = useCallback(async () => {
     try {
       setLoading(true);
-      // const res = await getTodoList();
       const res = await getTodosByUserId(userId);
       if (res) {
         setTodos(res);
       }
-
     } catch (e) {
       console.error(e);
     } finally {
       setLoading(false);
     }
-  }
+  }, [userId]);
 
   useEffect(() => {
     onGetTodos();
-  }, []);
+  }, [onGetTodos]);
 
   // 비어있는 todo 생성
   const onCreateEmptyTodos = async () => {
