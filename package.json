@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "supabase:gen":"npx supabase gen types typescript --project-id 'xitgoudcvottvkthyuwp' --schema public > types/supabase.ts"
+    "supabase:gen":"npx supabase gen types typescript --project-id 'xitgoudcvottvkthyuwp' --schema public > types/supabase.ts",
+    "vercel-build": "yarn supabase:gen && yarn build"
   },
   "dependencies": {
     "@supabase/auth-ui-react": "^0.4.7",
