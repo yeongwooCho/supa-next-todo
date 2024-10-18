@@ -44,7 +44,7 @@ const AuthUi = () => {
 
   useEffect(() => {
     getUserInfo();
-  }, []);
+  }, [getUserInfo]);
 
   if (!isMount) return null;
 
