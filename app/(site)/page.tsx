@@ -13,7 +13,7 @@ export default async function Home() {
         <div>
           <div className="flex flex-col items-center mt-12">
             <div>
-              <DotLoader />
+              <DotLoader color={"white"}/>
             </div>
             <div className="font-bold my-2">Please Login First</div>
           </div>

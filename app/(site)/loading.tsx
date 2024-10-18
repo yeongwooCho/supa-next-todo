@@ -1,9 +1,14 @@
-import React from 'react';
+"use client";
+import React from "react";
+import { DotLoader } from "react-spinners";
 
 const Loading = () => {
   return (
-    <div>
-      <h1>Loading</h1>
+    <div className=" flex flex-col items-center mt-12">
+      <div>
+        <DotLoader color={"white"} />
+      </div>
+      <div className=" font-bold my-2">loading...</div>
     </div>
   );
 };
