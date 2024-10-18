@@ -1,6 +1,7 @@
 import React from 'react';
 import {getProfileById} from "@/actions/auth/user.action";
 import {permanentRedirect} from "next/navigation";
+import TodoContainer from "@/app/share/[user_id]/components/todo-container";
 
 interface ISharePageProps {
   params: { user_id: string };
@@ -10,6 +11,7 @@ interface ISharePageProps {
 const page: React.FC<ISharePageProps> = async ({params}) => {
   const userId = params.user_id;
   const profile = await getProfileById({serverComponent: true, userId});
+  const userName = profile?.full_name;
   console.log('>>profile', profile);
 
   if (!profile) {
@@ -18,7 +20,7 @@ const page: React.FC<ISharePageProps> = async ({params}) => {
 
   return (
     <div>
-      share page
+      <TodoContainer sharedUserFullName={userName ?? ""} ownerUserId={userId}/>
     </div>
   );
 };

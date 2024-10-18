@@ -28,6 +28,19 @@ export const getTodosById = async (id: number) => {
   return result.data;
 }
 
+export const getTodosByUserId = async (userId: string) => {
+  // server component가 맞다.
+  const supabase = await createSupabaseServerClient(true);
+
+  const result = await supabase.from('todos_with_rls')
+    .select('*')
+    .is("deleted_at", null)
+    .eq('user_id', userId);
+  // 동등비교
+
+  return result.data;
+}
+
 export const getTodosBySearch = async (terms: string) => {
   const supabase = await createSupabaseServerClient();
 
