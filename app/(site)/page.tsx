@@ -1,5 +1,9 @@
+import TodoContainer from "@/app/(site)/components/todo-container";
+
 export default function Home() {
   return (
-    <main>Home</main>
+    <main>
+      <TodoContainer/>
+    </main>
   );
 }

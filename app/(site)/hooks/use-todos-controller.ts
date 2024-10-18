@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {createTodo, deleteTodoSoft, getTodoList, getTodosById, getTodosBySearch, updateTodo} from "@/apis/todos-no-rls";
+import {createTodo, deleteTodoSoft, getTodoList, getTodosById, getTodosBySearch, updateTodo} from "@/actions/todo/todo.action";
 import {Database} from "@/types/supabase";
 
-type TTodoDto = Database["public"]["Tables"]["todos_no_rls"]["Row"];
+type TTodoDto = Database["public"]["Tables"]["todos_with_rls"]["Row"];
 
 const useTodosController = () => {
   const [loading, setLoading] = useState(true);
